@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    template-service:
+        build: .
+        ports:
+            - '3000:3000'
+        volumes:
+            - .:/usr/src/app
+        command: node_modules/.bin/nodemon --watch server --delay 2.5 ./server/index.js
+git 
