@@ -1,9 +1,9 @@
-# Client-Service
+# Account Service
 
 ### Description
 This is one of microservices for "Shangye.space" project. 
 
-<h4>Client service is responsible for:</h4>
+<h4>Account service is responsible for:</h4>
 <ol>
     <li>Authentication</li>
         <ul>
