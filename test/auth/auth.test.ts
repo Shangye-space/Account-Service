@@ -1,0 +1,38 @@
+import { expect, assert } from 'chai';
+import { describe, it } from 'mocha';
+import { stub } from 'sinon';
+
+import proxyquire from 'proxyquire';
+
+// import {} from '../../src/routes/private/api/auth/auth';
+
+describe('src/helpers/auth.ts', () => {
+    let stubs: any;
+    let shouldSignWithToken: any;
+
+    beforeEach(() => {
+        stubs = {
+            jsonwebtoken: {
+                verify: stub().resolves(),
+            },
+            '../../../../helpers/auth': {
+                credentialsMatch: stub().resolves(),
+            },
+        };
+
+        shouldSignWithToken = proxyquire(
+            '../../src/routes/private/api/auth/auth.ts',
+            stubs,
+        ).shouldSignWithToken;
+    });
+
+    describe('shouldSignWithToken:', async () => {
+        it('shouldSignWithToken returns true', async () => {
+            stubs['../../../../helpers/auth'].credentialsMatch.resolves(true);
+
+            const result = shouldSignWithToken('#@&*Y*@&G@@*');
+
+            expect(result).to.be.equal(true);
+        });
+    });
+});
