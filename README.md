@@ -1,5 +1,24 @@
 # Account Service
 
+## How to run service
+<span>Make sure you have docker and nvm installed.</span>
+<a href="https://www.docker.com/get-started">install Docker here!</a>
+<a href="https://github.com/nvm-sh/nvm#installing-and-updating"> install nvm here!</a>
+<p>run following commands in order:</p>
+<ul>
+    <li><h5>nvm install 12</h5></li>
+    <li><h5>nvm use 12</h5></li>
+    <li><h5>npm install</h5></li>
+    <li><h5>docker-compose build</h5></li>
+    <li><h5>docker-compose up</h5></li>
+</ul>
+
+## How to test
+<p>run following command:</p>
+<ul>
+    <li><h5>npm run test</h5></li>
+</ul>
+
 ### Description
 This is one of microservices for "Shangye.space" project. 
 
