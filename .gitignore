@@ -235,3 +235,4 @@ _Pvt_Extensions
 
 .nuc_output/
 coverage/
+.nyc_output/

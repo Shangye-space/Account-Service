@@ -51,14 +51,19 @@ export const authHandler = async (
 
 export const shouldSignWithToken = async (token: any) => {
     return new Promise<any>((resolve, reject) => {
-        jwt.verify(token, 'secret', async (err: any, decoder: any) => {
-            const token_email = decoder.data.email;
-            const token_password = decoder.data.password;
+        resolve(
+            jwt.verify(token, 'secret', async (err: any, decoder: any) => {
+                const token_email = decoder.data.email;
+                const token_password = decoder.data.password;
 
-            const result = await credentialsMatch(token_email, token_password);
+                const result = await credentialsMatch(
+                    token_email,
+                    token_password,
+                );
 
-            resolve(result);
-        });
+                return result;
+            }),
+        );
     });
 };
 

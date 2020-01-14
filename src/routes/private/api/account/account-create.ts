@@ -33,7 +33,7 @@ async function createAccountHandler(
     }
 }
 
-async function createAccount(
+export async function createAccount(
     email: string,
     salt: string,
     hash: string,
