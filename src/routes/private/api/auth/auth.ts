@@ -12,7 +12,7 @@ export const authHandler = async (
         if (token) {
             const result = await shouldSignWithToken(token);
             if (result) {
-                const self: any = await returnValue(email);
+                const self: any = await returnAccountData(email);
 
                 ctx.status = 200;
                 ctx.body = {
@@ -67,7 +67,7 @@ export const shouldSignWithToken = async (token: any) => {
     });
 };
 
-export const returnValue = (email: string): Promise<object> => {
+export const returnAccountData = (email: string): Promise<object> => {
     return new Promise((resolve, reject) => {
         db.query(
             `SELECT * FROM accounts WHERE email = "${email}" LIMIT 1`,
@@ -83,7 +83,7 @@ export const isAdmin = async (
     password: string,
 ): Promise<boolean> => {
     return new Promise(async (resolve, reject) => {
-        const account: object | any = await returnValue(email);
+        const account: object | any = await returnAccountData(email);
         if (account.admin === 1) {
             resolve(true);
         }
